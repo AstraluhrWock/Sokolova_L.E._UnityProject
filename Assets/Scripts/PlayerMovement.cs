@@ -54,15 +54,6 @@ public class PlayerMovement : MonoBehaviour
         //    transform.rotation = Quaternion.Euler(0f, playerRotation, 0f);
 
         //}
-  
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Key"))
-        {
-            other.gameObject.SetActive(false);
-            Destroy(other);
-        }
-    }
 }
