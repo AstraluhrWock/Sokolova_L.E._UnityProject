@@ -6,18 +6,22 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 3f;
     [SerializeField] private float runSpeed = 5f;
+    [SerializeField] private float angularSpeed = 100f;
 
     private const string horizontal = "Horizontal";
     private const string vertical = "Vertical";
     private const string running = "Running";
+    private const string mouseX = "Mouse X";
 
     private Vector3 direction;
+    private Vector3 rotationDirection;
     private bool isRunning;
 
     private Vector3 jump;
     private float jumpForce = 2.0f;
     private bool isGrounded;
-    Rigidbody rb;
+
+    private Rigidbody rb;
 
     private void Start()
     {
@@ -36,9 +40,9 @@ public class PlayerMovement : MonoBehaviour
     {
         direction.x = Input.GetAxis(horizontal);
         direction.z = Input.GetAxis(vertical);
-
-
         isRunning = Input.GetButton(running);
+        rotationDirection.y = Input.GetAxis(mouseX) * angularSpeed * Time.deltaTime;
+
         transform.position += direction * ((isRunning ? runSpeed : speed) * Time.deltaTime);
 
 
@@ -47,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
+
+        transform.Rotate(rotationDirection);
 
         //if (direction.magnitude >= 0.1f)
         //{
