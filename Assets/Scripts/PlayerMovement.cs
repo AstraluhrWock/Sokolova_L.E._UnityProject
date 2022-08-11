@@ -21,11 +21,13 @@ public class PlayerMovement : MonoBehaviour
     private float jumpForce = 2.0f;
     private bool isGrounded;
 
-    private Rigidbody rb;
+    private Rigidbody _rb;
+    private Animator _animator;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody>();
         jump = new Vector3(0.0f, 2.0f, 0.0f);
 
     }
@@ -48,18 +50,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            _rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
-
         transform.Rotate(rotationDirection);
 
-        //if (direction.magnitude >= 0.1f)
-        //{
-        //    float playerRotation = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-        //    transform.rotation = Quaternion.Euler(0f, playerRotation, 0f);
+        bool hasHorizontalInput = !Mathf.Approximately(direction.x, 0f);
+        bool hasVerticalInput = !Mathf.Approximately(direction.y, 0f);
+        bool isWalking = hasHorizontalInput || hasVerticalInput;
+        _animator.SetBool("IsWalking", isWalking);
+    }
 
-        //}
+    private void OnAnimatorMove()
+    {
+        _rb.MovePosition(_rb.position + transform.position *_animator.deltaPosition.magnitude);
+        //_rb.MoveRotation(rotationDirection.y);
     }
 
 }

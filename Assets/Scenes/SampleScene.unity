@@ -2326,7 +2326,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: b44f3940c4940544a8c2c6aee5fa086f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: b44f3940c4940544a8c2c6aee5fa086f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 125d3f71c2e7faf4cb375103b484d93e, type: 2}
+    - target: {fileID: 9500000, guid: b44f3940c4940544a8c2c6aee5fa086f, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b44f3940c4940544a8c2c6aee5fa086f, type: 3}
@@ -3272,11 +3280,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.40673664, y: -0, z: -0, w: 0.9135455}
-  m_LocalPosition: {x: 0, y: 6, z: -5}
+  m_LocalPosition: {x: 1.18, y: 5, z: -16.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1673032566}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 48, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -3285,13 +3293,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7fb13a0d8e1866418e24cda3615e61f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camOffSet: {x: 0, y: 1.2, z: -2.6}
-  target: {fileID: 1673032566}
+  camOffSet: {x: 0, y: 5, z: -2.6}
 --- !u!1 &966293384
 GameObject:
   m_ObjectHideFlags: 0
@@ -5179,13 +5186,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
---- !u!4 &1673032566 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400008, guid: b44f3940c4940544a8c2c6aee5fa086f, type: 3}
-  m_PrefabInstance: {fileID: 727356968}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1673032567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5200,6 +5202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   runSpeed: 5
+  angularSpeed: 100
 --- !u!1 &1701920817
 GameObject:
   m_ObjectHideFlags: 0
