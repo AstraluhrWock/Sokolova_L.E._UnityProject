@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    private bool touchingDoor = false;
+    private bool _touchingDoor = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            touchingDoor = true;
+            _touchingDoor = true;
         }
     }
 
@@ -18,15 +18,15 @@ public class OpenDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            touchingDoor = false;
+            _touchingDoor = false;
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown("e") && touchingDoor)
+        if (Input.GetKeyDown("e") && _touchingDoor)
         {
-            Debug.Log("door opens");
+            Debug.Log("Door opens");
         }
     }
 }
