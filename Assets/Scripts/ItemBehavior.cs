@@ -6,7 +6,7 @@ public class ItemBehavior : MonoBehaviour
 {
  
 
-    void OnTCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.name == "JohnLemon")
         {
