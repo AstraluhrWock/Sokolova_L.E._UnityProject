@@ -40,6 +40,6 @@ public class TurretsControl : MonoBehaviour
     {
         GameObject clone = Instantiate(shells, barrel.position, head.rotation);
         clone.GetComponent<Rigidbody>().AddForce(head.forward * 1000);
-        Destroy(clone, 10);
+        Destroy(clone, 5);
     }
 }
